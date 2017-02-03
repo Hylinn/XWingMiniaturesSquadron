@@ -1,6 +1,6 @@
 package io.github.hylinn.xwing.dice;
 
-import io.github.hylinn.xwing.dice.random.ChanceGenerator;
+import io.github.hylinn.xwing.random.ChanceGenerator;
 import io.github.hylinn.xwing.dice.roller.Roller;
 
 public class RolledDice implements Dice {

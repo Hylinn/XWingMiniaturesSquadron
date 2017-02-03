@@ -1,4 +1,4 @@
-package io.github.hylinn.xwing.dice.random;
+package io.github.hylinn.xwing.random;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

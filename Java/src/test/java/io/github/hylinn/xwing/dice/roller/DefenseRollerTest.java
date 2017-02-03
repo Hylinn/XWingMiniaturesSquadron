@@ -4,7 +4,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.Assert.*;
 
-import io.github.hylinn.xwing.dice.random.ChanceGenerator;
+import io.github.hylinn.xwing.random.ChanceGenerator;
 import org.junit.Test;
 
 public class DefenseRollerTest {

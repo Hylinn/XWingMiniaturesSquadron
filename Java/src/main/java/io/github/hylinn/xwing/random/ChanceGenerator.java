@@ -1,6 +1,7 @@
-package io.github.hylinn.xwing.dice.random;
+package io.github.hylinn.xwing.random;
 
 import java.util.Random;
+import io.github.hylinn.xwing.exception.InvalidDiceResultException;
 
 public class ChanceGenerator {
     private final Random random;
@@ -44,7 +45,7 @@ public class ChanceGenerator {
             case 7:
                 return Dice.Critical;
             default:
-                throw new InvalidDiceResult(dice + " is not a valid dice result (must between 0 and 7, inclusive).");
+                throw new InvalidDiceResultException(dice + " is not a valid dice result (must between 0 and 7, inclusive).");
         }
     }
 
@@ -64,15 +65,10 @@ public class ChanceGenerator {
             case 7:
                 return Dice.Blank;
             default:
-                throw new InvalidDiceResult(dice + " is not a valid dice result (must between 0 and 7, inclusive).");
+                throw new InvalidDiceResultException(dice + " is not a valid dice result (must between 0 and 7, inclusive).");
         }
     }
 
-    public enum Dice {
-        Blank, Evade, Hit, Critical, Focus
-    }
-
-    public enum Coin {
-        Heads, Tails
-    }
+    public enum Dice { Hit, Evade, Critical, Blank, Focus }
+    public enum Coin { Heads, Tails }
 }
