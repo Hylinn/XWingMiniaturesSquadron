@@ -1,21 +1,22 @@
 package io.github.hylinn.xwing.dice;
 
 import io.github.hylinn.xwing.random.ChanceGenerator;
-import io.github.hylinn.xwing.dice.roller.Roller;
+
+import java.util.function.Supplier;
 
 public class RolledDice implements Dice {
 
-    private final Roller roller;
+    private final Supplier<? extends ChanceGenerator.Dice> roller;
     private ChanceGenerator.Dice result;
 
     private boolean hasRerolled = false;
 
-    public RolledDice(Roller roller) {
+    public RolledDice(Supplier<? extends ChanceGenerator.Dice> roller) {
         this.roller = roller;
-        this.result = roller.roll();
+        this.result = roller.get();
     }
 
-    public RolledDice(Roller roller, ChanceGenerator.Dice result) {
+    public RolledDice(Supplier<? extends ChanceGenerator.Dice> roller, ChanceGenerator.Dice result) {
         this.roller = roller;
         this.result = result;
     }
@@ -34,7 +35,7 @@ public class RolledDice implements Dice {
     public boolean reroll() {
         if (!canReroll()) return false;
 
-        this.result = roller.roll();
+        this.result = roller.get();
         hasRerolled = true;
         return true;
     }
