@@ -16,4 +16,6 @@ public class ShipBase {
     }
 
     public int getCost() { return cost; }
+
+    public Faction getFaction() { return faction; }
 }
