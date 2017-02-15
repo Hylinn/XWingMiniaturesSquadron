@@ -1,5 +1,5 @@
 package io.github.hylinn.xwing.registry;
 
-import io.github.hylinn.xwing.ship.ShipBuilder;
+import io.github.hylinn.xwing.ship.ShipBase;
 
-public class ShipRegistry extends AbstractRegistry<ShipBuilder> { }
+public class ShipRegistry extends AbstractRegistry<ShipBase> { }

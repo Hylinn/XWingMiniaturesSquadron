@@ -13,4 +13,17 @@ public class Pilot implements Person {
     public boolean isUnique() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public boolean same(Person person) {
+        return name().equals(person.name());
+    }
+
+    public int skill() {
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean isElite() {
+        throw new UnsupportedOperationException();
+    }
 }
