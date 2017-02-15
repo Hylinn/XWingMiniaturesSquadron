@@ -1,5 +1,6 @@
-package io.github.hylinn.xwing.constraint;
+package io.github.hylinn.xwing.constraint.squadron;
 
+import io.github.hylinn.xwing.constraint.Constraint;
 import io.github.hylinn.xwing.constraint.validation.ValidationResult;
 import io.github.hylinn.xwing.constraint.validation.ValidationResultFactory;
 import io.github.hylinn.xwing.ship.Ship;
@@ -10,15 +11,14 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class SquadronConstraint implements Constraint<Squadron, Object> {
-
     private final Collection<Constraint<Squadron, Upgrade>> upgradeConstraints;
     private final Collection<Constraint<Squadron, Ship>> shipConstraints;
     private final ValidationResultFactory resultFactory;
 
-    protected SquadronConstraint(Collection<Constraint<Squadron, Upgrade>> upgrade, Collection<Constraint<Squadron, Ship>> ship, ValidationResultFactory resultFactory) {
-        this.upgradeConstraints = upgrade;
-        this.shipConstraints = ship;
-        this.resultFactory = resultFactory;
+    protected SquadronConstraint(SquadronConstraintBuilder builder) {
+        this.upgradeConstraints = builder.upgradeConstraints;
+        this.shipConstraints = builder.shipConstraints;
+        this.resultFactory = builder.factory;
     }
 
     @Override
