@@ -2,7 +2,9 @@ package io.github.hylinn.xwing.dice.roller;
 
 import io.github.hylinn.xwing.random.ChanceGenerator;
 
-public class DefenseRoller implements Roller {
+import java.util.function.Supplier;
+
+public class DefenseRoller implements Supplier<ChanceGenerator.Dice> {
 
     private final ChanceGenerator dice;
 
@@ -11,7 +13,7 @@ public class DefenseRoller implements Roller {
     }
 
     @Override
-    public ChanceGenerator.Dice roll() {
+    public ChanceGenerator.Dice get() {
         return dice.rollDefense();
     }
 }

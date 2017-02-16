@@ -17,7 +17,7 @@ public class DefenseRollerTest {
         when(mockGenerator.rollDefense()).thenReturn(expected);
 
         DefenseRoller roller = new DefenseRoller(mockGenerator);
-        ChanceGenerator.Dice actual = roller.roll();
+        ChanceGenerator.Dice actual = roller.get();
 
         assertEquals(expected, actual);
     }
