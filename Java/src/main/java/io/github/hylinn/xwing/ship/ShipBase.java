@@ -1,6 +1,10 @@
 package io.github.hylinn.xwing.ship;
 
 import io.github.hylinn.xwing.Faction;
+import io.github.hylinn.xwing.upgrade.Modification;
+import io.github.hylinn.xwing.upgrade.slot.EliteSlot;
+import io.github.hylinn.xwing.upgrade.slot.ModificationSlot;
+import io.github.hylinn.xwing.upgrade.slot.UpgradeSlotCollection;
 
 public class ShipBase {
     private final Pilot pilot;
@@ -18,4 +22,16 @@ public class ShipBase {
     public int getCost() { return cost; }
 
     public Faction getFaction() { return faction; }
+
+    public UpgradeSlotCollection upgradeSlots() {
+        UpgradeSlotCollection slots = new UpgradeSlotCollection();
+
+        if (pilot.isElite())
+            slots.add(new EliteSlot());
+
+        slots.add(type.getUpgradeSlots());
+        slots.add(new ModificationSlot());
+
+        return slots;
+    }
 }
